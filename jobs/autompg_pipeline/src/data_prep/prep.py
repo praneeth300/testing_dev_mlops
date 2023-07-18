@@ -23,9 +23,24 @@ mlflow.start_run()
 
 print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
 
-print("input data:", args.data)
+#print("input data:", args.data)
 
-df = pd.read_csv(args.data)
+arr = os.listdir(args.rdata)
+print(arr)
+
+########################################
+df = []
+for filename in arr:
+    print("reading file: %s ..." % filename)
+    with open(os.path.join(args.data, filename), "r") as handle:
+        # print (handle.read())
+        # ('input_df_%s' % filename) = pd.read_csv((Path(args.training_data) / filename))
+        input_df = pd.read_csv((Path(args.data) / filename))
+        df.append(input_df)
+
+##########################################
+
+#df = pd.read_csv(args.data)
 
 train_df, test_df = train_test_split(
     df,
