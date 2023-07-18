@@ -27,4 +27,4 @@ jobs:
       continue-on-error: true
     - name: run job
       run: bash -x ../../../run-job.sh pipeline.yml
-      working-directory: cli/jobs/autompg_pipeline
+      working-directory: jobs/autompg_pipeline
