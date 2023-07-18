@@ -25,7 +25,7 @@ print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
 
 #print("input data:", args.data)
 
-arr = os.listdir(args.rdata)
+arr = os.listdir(args.data)
 print(arr)
 
 ########################################
