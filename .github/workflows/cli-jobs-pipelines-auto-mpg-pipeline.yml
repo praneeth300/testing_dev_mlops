@@ -26,5 +26,5 @@ jobs:
       run: bash setup.sh
       continue-on-error: true
     - name: run job
-      run: bash -x ../../../run-job.sh pipeline.yml
+      run: bash -x ../../run-job.sh pipeline.yml
       working-directory: jobs/autompg_pipeline
