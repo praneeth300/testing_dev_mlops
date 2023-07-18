@@ -10,9 +10,10 @@ jobs:
   prep_job:
     type: command
     inputs:
-      raw_data: 
+      data: 
           type: uri_folder 
           path: ./data
+      test_train_ratio:
     outputs:
       train_data: 
         mode: upload
@@ -33,10 +34,10 @@ jobs:
     inputs:
       train_data: ${{parent.jobs.prep_job.outputs.train_data}}
       test_data: ${{parent.jobs.prep_job.outputs.test_data}}
+      learning_rate: 
+      registered_model_name:
     outputs:
-      model_output: 
-      test_data: 
-        mode: upload
+      model: 
     code: src/train
     environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
     compute: azureml:c002
