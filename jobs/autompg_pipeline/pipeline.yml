@@ -14,7 +14,9 @@ jobs:
           type: uri_folder 
           path: ./data
     outputs:
-      prep_data: 
+      train_data: 
+        mode: upload
+      test_data:
         mode: upload
     code: src/data_prep
     environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
