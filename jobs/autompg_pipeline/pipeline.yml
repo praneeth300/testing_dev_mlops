@@ -29,7 +29,8 @@ jobs:
   train_job:
     type: command
     inputs:
-      training_data: ${{parent.jobs.transform_job.outputs.transformed_data}}
+      train_data: ${{parent.jobs.prep_job.outputs.train_data}}
+      test_data: ${{parent.jobs.prep_job.outputs.test_data}}
     outputs:
       model_output: 
       test_data: 
