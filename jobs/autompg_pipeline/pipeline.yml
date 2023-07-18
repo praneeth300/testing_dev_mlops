@@ -13,7 +13,7 @@ jobs:
       data: 
           type: uri_folder 
           path: ./data
-      test_train_ratio: 0.8
+      test_train_ratio: 0.2
     outputs:
       train_data: 
         mode: upload
