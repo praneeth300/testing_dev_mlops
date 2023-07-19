@@ -13,7 +13,6 @@ from sklearn.model_selection import train_test_split
 # input and output arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--data", type=str, help="path to input data")
-parser.add_argument("--test_train_ratio", type=float, required=False, default=0.2)
 parser.add_argument("--train_data", type=str, help="path to train data")
 parser.add_argument("--test_data", type=str, help="path to test data")
 args = parser.parse_args()
@@ -45,11 +44,7 @@ print(df)
 # df = pd.read_csv(args.data)
 # print(df)
 
-train_df, test_df = train_test_split(
-    df,
-    test_size=args.test_train_ratio,
-    random_state=42
-)
+train_df, test_df = train_test_split(df,test_size=0.3,random_state=4)
 
 # output paths are mounted as folder, therefore, we are adding a filename to the path
 train_df = train_df.to_csv((Path(args.train_data) / "train_data.csv"))
